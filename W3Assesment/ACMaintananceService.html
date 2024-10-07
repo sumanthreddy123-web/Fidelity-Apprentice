@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            color: chartreuse;
+            text-align: center;
+        }
+
+        form {
+
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            background-color: chartreuse;
+            border-radius: 10px;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        textarea,
+        input[list],
+        select,
+        input[type="date"],
+        input[type="range"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            border: 1px solid white;
+            border-radius: 4px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 100px;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: grey;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: tan;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>AC Maintenance Service</h1>
+    <form id="AC ServiceForm" onsubmit="alert('You have successfully Submitted'); 
+            return false;">
+        <table>
+            <tr>
+                <td><label for="customerName">Customer Name:</label></td>
+                <td><input type="text" id="customerName" name="customerName" placeholder="Enter your name" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female" required>
+                    <label for="female">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="mobileNumber">Mobile Number:</label></td>
+                <td><input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter your mobile number"
+                        pattern="[0-9]{9}" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email ID:</label></td>
+                <td><input type="email" id="email" name="email" placeholder="Enter your email Id" required></td>
+            </tr>
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><textarea id="address" name="address" rows="5" cols="25" placeholder="Enter your address"
+                        required></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="acType">AC Type:</label></td>
+                <td>
+                    <input list="acTypes" id="acType" name="acType" placeholder="Select AC Type" required>
+                    <datalist id="acTypes">
+                        <option value="Split">
+                        <option value="Window">
+                        <option value="Centralized">
+                        <option value="Portable">
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="serviceType">Service Type:</label></td>
+                <td>
+                    <select id="serviceType" name="serviceType" required>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Gas Refill">Gas Refill</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="dateForAppointment">Date for Appointment:</label></td>
+                <td><input type="date" id="dateForAppointment" name="dateForAppointment" required></td>
+            </tr>
+            <tr>
+                <td><label for="yearlyMaintenance">Yearly Maintenance:</label></td>
+                <td><input type="checkbox" id="yearlyMaintenance" name="yearlyMaintenance" value="Yes"> Select if
+                    required</td>
+            </tr>
+            <tr>
+                <td><label for="duration">Duration in months from the previous service:</label></td>
+                <td><input type="range" id="duration" name="duration" min="0" max="6" step="1" title="0 to 6 Months">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="reset" value="Clear">
+                    <input type="submit" id="AC ServiceForm" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div id="result"></div>
+</body>
+
+</html>
