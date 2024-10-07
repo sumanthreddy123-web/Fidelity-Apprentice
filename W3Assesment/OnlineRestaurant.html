@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 {
+    color: #FF0000;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+div {
+    color: #0F0F0F;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+#result {
+    font-size: 15px;
+}
+
+table {
+    background-color: #F6B60F;
+    margin-left: 35%;
+    border-spacing: 5px;
+    border-width: 10%;
+    border-style: none;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+input[type="text"], input[type="email"], input[type="number"], select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"], input[type="reset"] {
+    width: 100px;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Online Restaurant Table Reservation</h1>
+    <form id="reservationForm" onsubmit="return reserveTable()">
+        <table>
+            <tr>
+                <td><label for="name">Guest Name:</label></td>
+                <td><input type="text" id="name" name="name" placeholder="Guest Name" required pattern="[A-Za-z\s]+"></td>
+            </tr>
+            <tr>
+                <td><label for="mobileNumber">Mobile Number:</label></td>
+                <td><input type="text" id="mobileNumber" name="mobileNumber" placeholder="Mobile Number" required pattern="[0-9]{9}"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td><label for="numberOfGuests">Number Of Guests:</label></td>
+                <td><input type="number" id="numberOfGuests" name="numberOfGuests" placeholder="Enter Number Of Guests" required min="2" max="20"></td>
+            </tr>
+            <tr>
+                <td>Session Type:</td>
+                <td>
+                    <input type="radio" id="lunch" name="sessionType" value="Lunch" required>
+                    <label for="lunch">Lunch</label>
+                    <input type="radio" id="dinner" name="sessionType" value="Dinner" required>
+                    <label for="dinner">Dinner</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="dateOfVisit">Date Of Visit:</label></td>
+                <td><input type="text" id="dateOfVisit" name="dateOfVisit" placeholder="dd/MM/yyyy" required></td>
+            </tr>
+            <tr>
+                <td><label for="duration">Duration:</label></td>
+                <td><input type="text" id="duration" name="duration" placeholder="Enter Duration" required></td>
+            </tr>
+            <tr>
+                <td><label for="tableName">Select Table:</label></td>
+                <td>
+                    <select id="tableName" name="tableName" required>
+                        <option value="TA1">TA1</option>
+                        <option value="TA2">TA2</option>
+                        <option value="TA3">TA3</option>
+                        <option value="TA4">TA4</option>
+                        <option value="TB1">TB1</option>
+                        <option value="TB2">TB2</option>
+                        <option value="TB3">TB3</option>
+                        <option value="TB4">TB4</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Payment Mode:</td>
+                <td>
+                    <input type="radio" id="creditCard" name="paymentMode" value="Credit Card" required>
+                    <label for="creditCard">Credit Card</label>
+                    <input type="radio" id="debitCard" name="paymentMode" value="Debit Card" required>
+                    <label for="debitCard">Debit Card</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="cardNumber">Card Number:</label></td>
+                <td><input type="text" id="cardNumber" name="cardNumber" placeholder="Enter Card Number" required pattern="[0-9]{15}"></td>
+            </tr>
+            <tr>
+                <td><label for="cvvNumber">CVV Number:</label></td>
+                <td><input type="text" id="cvvNumber" name="cvvNumber" placeholder="Enter CVV Number" required pattern="[0-9]{3}"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Reserve">
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div id="result"></div>
+</body>
+</html>
